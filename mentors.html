@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Mentors - PARIKSHAA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        @font-face {
+            font-family: 'Renee Thin';
+            src: url(assets/Renee-Thin\ \(1\).ttf) format('tff')
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        nav .logo {
+            font-family: 'Renee Thin', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 100;
+            color: #ff0000;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .menu-toggle {
+            display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        nav ul {
+            display: none;
+            list-style: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex-direction: column;
+            padding: 1rem;
+        }
+
+        nav ul.active {
+            display: flex;
+        }
+
+        nav ul li {
+            padding: 0.5rem 0;
+        }
+
+        nav a:not(.logo) {
+            color: #1f2937;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            display: block;
+            padding: 0.5rem 1rem;
+        }
+
+        nav a:not(.logo):hover {
+            color: #667eea;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            margin: 2rem 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: #4b5563;
+        }
+
+        .mentors-section {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem 3rem;
+        }
+
+        .mentors-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .mentor-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .mentor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .mentor-image {
+            width: 100%;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .mentor-image.gourav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .mentor-image.lovika {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .mentor-image.prabhat {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .mentor-image.gurleen {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .mentor-info {
+            padding: 1.5rem;
+        }
+
+        .mentor-info h3 {
+            font-size: 1.4rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .mentor-subject {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+        }
+
+        .mentor-description {
+            color: #4b5563;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            color: #4b5563;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+
+            nav ul {
+                display: flex;
+                position: static;
+                flex-direction: row;
+                background: transparent;
+                box-shadow: none;
+                padding: 0;
+                gap: 0.5rem;
+            }
+
+            nav ul li {
+                padding: 0;
+            }
+
+            nav a:not(.logo) {
+                padding: 0.5rem 1rem;
+            }
+
+            .mentors-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .page-header {
+                margin: 2rem;
+            }
+
+            .page-header h1 {
+                font-size: 3rem;
+            }
+
+            .mentors-section {
+                padding: 0 2rem 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .page-header {
+                padding: 4rem 2rem;
+                margin: 3rem auto;
+                max-width: 1280px;
+            }
+
+            .mentor-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">PARIKSHAA</a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+            <ul id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="mentors.html">Our Mentors</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1>Our Expert Mentors</h1>
+        <p>Learn from the Best in the Field</p>
+    </section>
+
+    <div class="mentors-section">
+        <div class="mentors-grid">
+            <div class="mentor-card">
+                <div class="mentor-image gourav">
+    <img src="assets/Gemini_Generated_Image_7gav5h7gav5h7gav.png" alt="Gourav Sir" style="width:100%; height:100%; object-fit:cover;">
+</div>
+                <div class="mentor-info">
+                    <h3>Gourav Sir</h3>
+                    <div class="mentor-subject">Mathematics</div>
+                    <p class="mentor-description">Expert in simplifying complex mathematical concepts with years of experience in competitive exam preparation. Known for making mathematics enjoyable and accessible to all students.</p>
+                </div>
+            </div>
+
+            <div class="mentor-card">
+                <div class="mentor-image lovika">
+                    👩‍🏫
+                </div>
+                <div class="mentor-info">
+                    <h3>Lovika Ma'am</h3>
+                    <div class="mentor-subject">Science & English</div>
+                    <p class="mentor-description">Passionate educator with expertise in both Science and English. Dedicated to fostering scientific curiosity and excellent communication skills in students.</p>
+                </div>
+            </div>
+
+            <div class="mentor-card">
+                <div class="mentor-image prabhat">
+                    👨‍🏫
+                </div>
+                <div class="mentor-info">
+                    <h3>Prabhat Sir</h3>
+                    <div class="mentor-subject">Mathematics</div>
+                    <p class="mentor-description">Specialized in advanced mathematics with a focus on problem-solving techniques. Helps students build strong analytical and logical thinking skills.</p>
+                </div>
+            </div>
+
+            <div class="mentor-card">
+                <div class="mentor-image gurleen">
+                    👩‍🏫
+                </div>
+                <div class="mentor-info">
+                    <h3>Gurleen Ma'am</h3>
+                    <div class="mentor-subject">Social Studies (SST)</div>
+                    <p class="mentor-description">Makes history, geography, and civics come alive through engaging teaching methods. Helps students understand and appreciate the world around them.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
